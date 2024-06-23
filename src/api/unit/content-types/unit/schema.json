@@ -4,7 +4,8 @@
   "info": {
     "singularName": "unit",
     "pluralName": "units",
-    "displayName": "Units"
+    "displayName": "Units",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,8 +20,9 @@
     },
     "unit_parent_project": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::project.project"
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "project_units"
     },
     "unit_features": {
       "type": "relation",
@@ -28,6 +30,37 @@
       "target": "api::feature.feature"
     },
     "unit_area": {
+      "type": "integer"
+    },
+    "unit_photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "unit_cover_photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "unit_rooms_no": {
+      "type": "integer"
+    },
+    "unit_bathrooms_no": {
+      "type": "integer"
+    },
+    "unit_halls_no": {
       "type": "integer"
     }
   }

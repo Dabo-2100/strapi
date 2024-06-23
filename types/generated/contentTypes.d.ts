@@ -903,6 +903,34 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToOne',
       'api::location.location'
     >;
+    project_slogan: Attribute.String;
+    project_units: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::unit.unit'
+    >;
+    min_price: Attribute.BigInteger;
+    max_price: Attribute.BigInteger;
+    min_area: Attribute.Integer;
+    max_area: Attribute.Integer;
+    min_halls: Attribute.Integer;
+    max_halls: Attribute.Integer;
+    min_rooms: Attribute.Integer;
+    max_rooms: Attribute.Integer;
+    min_kitchens: Attribute.Integer;
+    max_kitchens: Attribute.Integer;
+    project_photos: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    min_baths: Attribute.Integer;
+    max_baths: Attribute.Integer;
+    project_desc: Attribute.Text;
+    project_features: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::feature.feature'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -927,6 +955,7 @@ export interface ApiUnitUnit extends Schema.CollectionType {
     singularName: 'unit';
     pluralName: 'units';
     displayName: 'Units';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -936,7 +965,7 @@ export interface ApiUnitUnit extends Schema.CollectionType {
     unit_price: Attribute.BigInteger;
     unit_parent_project: Attribute.Relation<
       'api::unit.unit',
-      'oneToOne',
+      'manyToOne',
       'api::project.project'
     >;
     unit_features: Attribute.Relation<
@@ -945,6 +974,14 @@ export interface ApiUnitUnit extends Schema.CollectionType {
       'api::feature.feature'
     >;
     unit_area: Attribute.Integer;
+    unit_photos: Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    unit_cover_photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    unit_rooms_no: Attribute.Integer;
+    unit_bathrooms_no: Attribute.Integer;
+    unit_halls_no: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

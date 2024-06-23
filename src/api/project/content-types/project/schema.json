@@ -30,6 +30,70 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location.location"
+    },
+    "project_slogan": {
+      "type": "string"
+    },
+    "project_units": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::unit.unit",
+      "mappedBy": "unit_parent_project"
+    },
+    "min_price": {
+      "type": "biginteger"
+    },
+    "max_price": {
+      "type": "biginteger"
+    },
+    "min_area": {
+      "type": "integer"
+    },
+    "max_area": {
+      "type": "integer"
+    },
+    "min_halls": {
+      "type": "integer"
+    },
+    "max_halls": {
+      "type": "integer"
+    },
+    "min_rooms": {
+      "type": "integer"
+    },
+    "max_rooms": {
+      "type": "integer"
+    },
+    "min_kitchens": {
+      "type": "integer"
+    },
+    "max_kitchens": {
+      "type": "integer"
+    },
+    "project_photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "min_baths": {
+      "type": "integer"
+    },
+    "max_baths": {
+      "type": "integer"
+    },
+    "project_desc": {
+      "type": "text"
+    },
+    "project_features": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::feature.feature"
     }
   }
 }
